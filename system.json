@@ -1,0 +1,9 @@
+{
+    "auth": true,
+    "description": "System used for the ClearBlade internship challenge.",
+    "messaging_url": "platform.clearblade.com:1883",
+    "name": "CB_Challenge",
+    "platform_url": "https://platform.clearblade.com",
+    "system_key": "b6f7ad890ce2faddb4a8e9948001",
+    "system_secret": ""
+}
