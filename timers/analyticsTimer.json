@@ -1,0 +1,8 @@
+{
+    "description": "Runs the analytics service at regular intervals.",
+    "frequency": 1800,
+    "name": "analyticsTimer",
+    "repeats": -1,
+    "service_name": "analyticsService",
+    "start_time": "2021-05-09T00:46:32.186Z"
+}
