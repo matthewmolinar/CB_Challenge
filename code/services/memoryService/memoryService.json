@@ -1,0 +1,13 @@
+{
+    "auto_balance": false,
+    "auto_restart": false,
+    "concurrency": 0,
+    "dependencies": "log,clearblade_async,mqtt,clearblade",
+    "execution_timeout": 60,
+    "logging_enabled": true,
+    "name": "memoryService",
+    "params": [
+        ""
+    ],
+    "run_user": ""
+}
