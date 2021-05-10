@@ -1,0 +1,33 @@
+{
+    "asset_types": [
+        "Code Services",
+        "Collections",
+        "Devices",
+        "Edges",
+        "Roles",
+        "Timers",
+        "Triggers",
+        "Users"
+    ],
+    "author": {
+        "email": "matthew.a.molinar@gmail.com"
+    },
+    "clouds": [],
+    "description": "System used for the ClearBlade internship challenge.",
+    "domains": [],
+    "exportRows": false,
+    "gateways": [],
+    "image_url": "https://docs.clearblade.com/v/4/static/img/default_package.png",
+    "keywords": [
+        "clearblade",
+        "iot",
+        "platform"
+    ],
+    "license": "MIT",
+    "name": "CB_Challenge",
+    "private": false,
+    "prog_lang": [],
+    "protocols": [],
+    "things": [],
+    "version": "1.0.0"
+}
