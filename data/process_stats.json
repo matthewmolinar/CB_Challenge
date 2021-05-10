@@ -1,0 +1,41 @@
+{
+    "items": [],
+    "name": "process_stats",
+    "schema": [
+        {
+            "ColumnName": "item_id",
+            "ColumnType": "uuid",
+            "PK": true
+        },
+        {
+            "ColumnName": "time",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "processname",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "status",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "memorypercent",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "runningtime",
+            "ColumnType": "string",
+            "PK": false
+        },
+        {
+            "ColumnName": "pid",
+            "ColumnType": "string",
+            "PK": false
+        }
+    ]
+}
