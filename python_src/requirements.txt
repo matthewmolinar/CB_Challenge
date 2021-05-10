@@ -1,0 +1,15 @@
+certifi==2020.12.5
+cffi==1.14.5
+chardet==4.0.0
+clearblade==2.4.0
+cryptography==3.4.7
+idna==2.10
+ndg-httpsclient==0.5.1
+paho-mqtt==1.5.1
+psutil==5.8.0
+pyasn1==0.4.8
+pycparser==2.20
+pyOpenSSL==20.0.1
+requests==2.25.1
+six==1.16.0
+urllib3==1.26.4
