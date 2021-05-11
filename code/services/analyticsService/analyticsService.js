@@ -25,8 +25,8 @@
 	db.query(query).then(
         function(data) {
             // Show max and min running times, and the process name.
-            var maxRunningTimeSeconds = Number(data[0]['runningtime'])
-            var minRunningTimeSeconds = Number(data[0]['runningtime'])
+            var maxRunningTimeSeconds = Number(data[0]['runningtime']);
+            var minRunningTimeSeconds = Number(data[0]['runningtime']);
             var maxRunningProcess;
             var minRunningProcess;
             var maxMemoryPercentageUsed = data[0].memory_percent;
