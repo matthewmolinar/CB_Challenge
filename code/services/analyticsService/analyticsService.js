@@ -19,26 +19,26 @@
     const end = new Date();
     const start = new Date();
     start.setMinutes(end.getMinutes() - 30);
-    const query = "SELECT * FROM process_stats WHERE time<='" 
+    const query = "SELECT * FROM process_stats_2 WHERE time<='" 
     + end.toISOString() + "' AND time >='" + start.toISOString() + "'";
 
 	db.query(query).then(
         function(data) {
             // Show max and min running times, and the process name.
-            var maxRunningTimeSeconds = new Date(data[0].runningtime).getTime();
-            var minRunningTimeSeconds = new Date(data[0].runningtime).getTime();
+            var maxRunningTimeSeconds = Number(data[0]['runningtime'])
+            var minRunningTimeSeconds = Number(data[0]['runningtime'])
             var maxRunningProcess;
             var minRunningProcess;
-            var maxMemoryPercentageUsed = data[0].memorypercent;
+            var maxMemoryPercentageUsed = data[0].memory_percent;
             var maxMemoryPercentageProcess;
-            var minMemoryPercentageUsed = Number(data[0].memorypercent);
+            var minMemoryPercentageUsed = Number(data[0].memory_percent);
             var minMemoryPercentageProcess;
             var sumOfProcessRunTimes = 0;
 
             data.forEach(function (element) {
-                const processName = element.processname;
-                const memoryPercent = Number(element.memorypercent);
-                const runningTimeInSeconds = new Date(element.runningtime).getTime();
+                const processName = element.name;
+                const memoryPercent = Number(element.memory_percent);
+                const runningTimeInSeconds = Number(element.runningtime);
                 sumOfProcessRunTimes += runningTimeInSeconds;
                 
                 if (runningTimeInSeconds > maxRunningTimeSeconds) {
@@ -69,8 +69,9 @@
                 minMemoryPercentageUsed,
                 minMemoryPercentageProcess
             };
-
+            log(processStats)
             client.publish("analytics", JSON.stringify(processStats))
                 .then(function () { resp.success("success") });
     });
 }
+
