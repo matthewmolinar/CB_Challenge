@@ -7,6 +7,7 @@ import os
 import psutil
 import datetime
 import time
+import json
 
 # Prerequisites for MQTT
 EMAIL = os.getenv('EMAIL')
@@ -30,21 +31,7 @@ mqtt.connect()
 while(True):
     # Sending memory information via mqtt.
     mem = psutil.virtual_memory()
-    payload = '{'
-    for i in range(len(psutil.pids())):
-        pid = psutil.pids()[i]
-        p = psutil.Process(pid)
-        with p.oneshot():
-            current_time = time.time()
-            start_time = p.create_time()
-            time_running = current_time - start_time
-            dt = datetime.datetime.utcfromtimestamp(time_running)
-            running_time_iso = dt.isoformat() + 'Z'
-        if i == (len(psutil.pids()) - 1):
-            payload += f'"process{pid}": {{"processName":"{p.name()}", "memoryPercent": "{p.memory_percent()}", "pid": "{pid}", "status": "{p.status()}", "runningTime": "{running_time_iso}"}}'
-        else:
-            payload += f'"process{pid}": {{"processName":"{p.name()}", "memoryPercent": "{p.memory_percent()}", "pid": "{pid}", "status": "{p.status()}", "runningTime": "{running_time_iso}"}},'
-    payload += '}'
+    payload = json.dumps([proc.as_dict(attrs=['pid', 'name', 'memory_percent','create_time']) for proc in psutil.process_iter()])
     mqtt.publish("memory_usage", payload)
     time.sleep(90)
 

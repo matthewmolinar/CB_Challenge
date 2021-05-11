@@ -12,7 +12,7 @@
  * @param {CbServer.Resp} resp
  */
 
-function analyticsService(req,resp){
+ function analyticsService(req,resp){
     const client = new MQTT.Client();
     const db = ClearBladeAsync.Database();
 
@@ -74,4 +74,3 @@ function analyticsService(req,resp){
                 .then(function () { resp.success("success") });
     });
 }
-
